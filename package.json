@@ -1,0 +1,31 @@
+{
+  "name": "pwframeworkpom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:master": "npx playwright test --grep @master",
+    "test:sanity": "npx playwright test --grep @sanity",
+    "test:datadriven": "npx playwright test --grep @datadriven",
+    "test:end-to-end": "npx playwright test --grep @end-to-end",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force allure-results, allure-report -ErrorAction SilentlyContinue\"",
+    "test": "npx playwright test --grep @master",
+    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "test:report": "npm run clean && npm test && npm run report"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "allure-playwright": "^3.7.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "csv-parse": "^6.2.1",
+    "xlsx": "^0.18.5"
+  }
+}
